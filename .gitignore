@@ -6,5 +6,5 @@ dist/
 old/
 node_modules/
 .env
-entire_collection.json
+allcollection.json
 test.py
