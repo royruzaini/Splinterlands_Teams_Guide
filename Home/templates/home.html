@@ -2,11 +2,32 @@
 {% block content %}
 
 <h1>
-    Select team parameter.
+    <!-- <label>Username:</label>
+    <input id="username" type="text"><br><br> -->
+    Select team parameter.<br>
 </h1>
 <style>
     div {
         display: inline-block;
+    }
+    table {
+        border-spacing: 20em 15em;
+        border: 1px solid orange;
+    }
+    th {
+        width: auto;
+        height: auto;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid black;
+        vertical-align: middle;
+    }
+    td {
+        width: auto;
+        height: auto;
+        padding: 5px;
+        border: 1px solid black;
+        vertical-align: middle;
     }
 </style>
 <div class="mana_selection">
@@ -98,7 +119,7 @@
     <div>
         <label for="ruleset2">2nd ruleset:</label>
             <select name="rule2" id="rule2">
-                <option value="">None</option>
+                <option value="None">None</option>
                 <option value="Aim True">Aim True</option>
                 <option value="Armored Up">Armored Up</option>
                 <option value="Back to Basics">Back to Basics</option>
@@ -137,5 +158,70 @@
 <div>
     <button onclick="Submit()" >Submit</button>
 </div>
-
+<br><br>
+<div id="teamwhite"></div>
+<div id="teamblack"></div>
+<div id="teamblue"></div>
+<div id="teamred"></div>
+<div id="teamgreen"></div>
+<div id="teamgold"></div>
+<script>
+    // Make API calls
+    function Submit() {
+        life();
+        death();
+        water();
+        fire();
+        earth();
+        dragon();
+     }
+    function life(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-team-white' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(data => document.getElementById('teamwhite').innerHTML = data)
+	}
+    function death(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-team-black' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(data => document.getElementById('teamblack').innerHTML = data)
+	}
+    function water(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-team-blue' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(data => document.getElementById('teamblue').innerHTML = data)
+	}
+    function fire(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-team-red' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(data => document.getElementById('teamred').innerHTML = data)
+	}
+    function earth(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-team-green' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(data => document.getElementById('teamgreen').innerHTML = data)
+	}
+    function dragon(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-team-gold' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(data => document.getElementById('teamgold').innerHTML = data)
+	}
+</script>
 {% endblock %}
