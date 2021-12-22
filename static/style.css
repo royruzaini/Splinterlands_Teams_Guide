@@ -1,0 +1,225 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url("base.css");
+
+:root {
+  --pad: 48px 96px 48px 96px;
+  --bg: #fffff9;
+  --highlight: #ffffdd;
+  --text: #000000;
+  --link-color: #0000ff;
+  --dash-size: 0.8em;
+
+  --h1-size: 80px;
+  --h2-size: 40px;
+  --h3-size: 18px;
+  --h4-size: 14px;
+  --p-size: 24px;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --pad: 24px 48px 24px 48px;
+
+    --h1-size: 64px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --h1-size: 40px;
+    --h2-size: 32px;
+    --h3-size: 18px;
+    --p-size: 18px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111118;
+    --highlight: #22222a;
+    --text: #fffff9;
+    --link-color: #ffe100;
+  }
+}
+
+body {
+  font-family: "Inter var", Arial;
+  font-size: var(--p-size);
+  line-height: 1.25;
+
+  background-color: var(--bg);
+  color: var(--text);
+
+  max-width: 1120px;
+  margin: 0 auto 120px auto;
+}
+
+a { 
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding: var(--pad);
+  font-variation-settings: "wght" 600;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1:before {
+  content: "";
+  display: inline-block;
+  width: var(--dash-size);
+  height: 2px;
+  margin: 0 0.5em 0 0;
+  background-color: var(--link-color);
+  vertical-align: middle;
+}
+
+header h1 a {
+  color: currentColor;
+  border-bottom-color: transparent;
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  margin: 0 0 0 1em;
+}
+
+
+section.hero {
+  font-size: var(--h1-size);
+  font-variation-settings: "wght" 600;
+  line-height: 1.15;
+  padding: var(--pad);
+}
+
+figure {
+  margin: 0 0 48px 0;
+}
+
+figcaption {
+  padding: var(--pad);
+  max-width: 35em;
+}
+
+figure img {
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-size: var(--h2-size);
+  font-variation-settings: "wght" 500;
+  margin: 0 0 24px 0;
+}
+
+h2 a {
+  color: var(--text);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  font-variation-settings: "wght" 500;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+
+h4 {
+  font-size: var(--h4-size);
+  font-variation-settings: "wght" 500;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+p {
+  margin: 0 0 24px 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+figcaption p.comingsoon {
+  opacity: 0.5;
+  font-size: 0.75em;
+}
+
+div.cursors div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  background-color: var(--link-color);
+}
+
+section.assets {
+  font-size: 16px;
+  padding: var(--pad);
+  counter-reset: assets;
+}
+
+section.assets figcaption {
+  margin-top: 16px;
+  padding: 0;
+}
+
+section.assets figcaption:before {
+  counter-increment: assets;
+  content: "Image #" counter(assets);
+  display: block;
+  font-variation-settings: "wght" 600;
+  margin-bottom: 0.25em;
+}
+
+section.credits {
+  padding: var(--pad);
+  background-color: var(--highlight);
+}
+
+section.credits div.list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 8px 32px;
+}
+
+section.credits span.role {
+  font-variation-settings: "wght" 500;
+}
+
+section.prev-next {
+  padding: var(--pad);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+section.prev-next a {
+  border-bottom: none;
+}
+
+section.prev-next a.next {
+  text-align: right;
+}
+
+div {
+  display: inline-block;
+}
+
+div label {
+  display: block;
+}

@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>
+    Select team parameter.
+</h1>
+<style>
+    div {
+        display: inline-block;
+    }
+</style>
+<div class="mana_selection">
+    <div>
+        <label for="mana">Choose a mana:</label>
+            <select name="mana" id="mana">
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="99">99</option>
+            </select>
+    </div>
+</div>
+<div class="ruleset_selection">
+    <div>
+        <label for="ruleset1">1st ruleset:</label>
+            <select name="rule1" id="rule1">
+                <option value="Standard">Standard</option>
+                <option value="Aim True">Aim True</option>
+                <option value="Armored Up">Armored Up</option>
+                <option value="Back to Basics">Back to Basics</option>
+                <option value="Broken Arrows">Broken Arrows</option>
+                <option value="Close Range">Close Range</option>
+                <option value="Earthquake">Earthquake</option>
+                <option value="Equal Opportunity">Equal Opportunity</option>
+                <option value="Equalizer">Equalizer</option>
+                <option value="Even Stevens">Even Stevens</option>
+                <option value="Explosive Weaponry">Explosive Weaponry</option>
+                <option value="Fog of War">Fog of War</option>    
+                <option value="Healed Out">Healed Out</option>
+                <option value="Heavy Hitters">Heavy Hitters</option>
+                <option value="Holy Protection">Holy Protection</option>
+                <option value="Keep Your Distance">Keep Your Distance</option>
+                <option value="Little League">Little League</option>
+                <option value="Lost Legendaries">Lost Legendaries</option>
+                <option value="Lost Magic">Lost Magic</option>
+                <option value="Melee Mayhem">Melee Mayhem</option>
+                <option value="Noxious Fumes">Noxious Fumes</option>
+                <option value="Odd Ones Out">Odd Ones Out</option>
+                <option value="Reverse Speed">Reverse Speed</option>
+                <option value="Rise of the Commons">Rise of the Commons</option>
+                <option value="Silenced Summoners">Silenced Summoners</option>
+                <option value="Spreading Fury">Spreading Fury</option>
+                <option value="Stampede">Stampede</option>
+                <option value="Super Sneak">Super Sneak</option>
+                <option value="Taking Sides">Taking Sides</option>
+                <option value="Target Practice">Target Practice</option>
+                <option value="Unprotected">Unprotected</option>
+                <option value="Up Close & Personal">Up Close & Personal</option>
+                <option value="Weak Magic">Weak Magic</option>
+            </select>
+    </div>
+    <div>
+        <label for="ruleset2">2nd ruleset:</label>
+            <select name="rule2" id="rule2">
+                <option value="">None</option>
+                <option value="Aim True">Aim True</option>
+                <option value="Armored Up">Armored Up</option>
+                <option value="Back to Basics">Back to Basics</option>
+                <option value="Broken Arrows">Broken Arrows</option>
+                <option value="Close Range">Close Range</option>
+                <option value="Earthquake">Earthquake</option>
+                <option value="Equal Opportunity">Equal Opportunity</option>
+                <option value="Equalizer">Equalizer</option>
+                <option value="Even Stevens">Even Stevens</option>
+                <option value="Explosive Weaponry">Explosive Weaponry</option>
+                <option value="Fog of War">Fog of War</option>    
+                <option value="Healed Out">Healed Out</option>
+                <option value="Heavy Hitters">Heavy Hitters</option>
+                <option value="Holy Protection">Holy Protection</option>
+                <option value="Keep Your Distance">Keep Your Distance</option>
+                <option value="Little League">Little League</option>
+                <option value="Lost Legendaries">Lost Legendaries</option>
+                <option value="Lost Magic">Lost Magic</option>
+                <option value="Melee Mayhem">Melee Mayhem</option>
+                <option value="Noxious Fumes">Noxious Fumes</option>
+                <option value="Odd Ones Out">Odd Ones Out</option>
+                <option value="Reverse Speed">Reverse Speed</option>
+                <option value="Rise of the Commons">Rise of the Commons</option>
+                <option value="Silenced Summoners">Silenced Summoners</option>
+                <option value="Spreading Fury">Spreading Fury</option>
+                <option value="Stampede">Stampede</option>
+                <option value="Super Sneak">Super Sneak</option>
+                <option value="Taking Sides">Taking Sides</option>
+                <option value="Target Practice">Target Practice</option>
+                <option value="Unprotected">Unprotected</option>
+                <option value="Up Close & Personal">Up Close & Personal</option>
+                <option value="Weak Magic">Weak Magic</option>
+            </select>
+    </div>
+</div>
+<div>
+    <button onclick="Submit()" >Submit</button>
+</div>
+
+{% endblock %}
