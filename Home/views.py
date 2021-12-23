@@ -45,7 +45,7 @@ with open("mycards.json") as file:
     mycards = json.load(file)
 file.close
 
-with open('C:/Users/royru/Desktop/Splinterlands_Teams_Guide/collection.json') as f:
+with open('collection.json') as f:
     BATTLEBASE = json.load(f)
 f.close
 
