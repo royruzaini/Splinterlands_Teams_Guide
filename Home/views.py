@@ -50,7 +50,6 @@ with open('C:/Users/royru/Desktop/Splinterlands_Teams_Guide/collection.json') as
 f.close
 
 class Api(TemplateView):
-
     # Create your views here.
     def get_cards(request):
         """ Get user's playable cards.
@@ -150,19 +149,11 @@ class Api(TemplateView):
         deck = list(filter(most_win, possible_decks))
 
         if len(possible_decks) != 0:
-            Team = {}
-            Team['Team Available'] = len(possible_decks)
-            Team['This Team win'] = max
-            Team['Win Ratio'] = (max / len(possible_decks)) * 100
 
-            dg = pd.DataFrame(Team, index=[0])
-            win_ratio = dg.to_html(classes='table table-bordered')
-    
             for battle in deck:
 
                 most_win_deck = {}
 
-                # most_win_deck['summoner_splinter'] = splinter(monster_color(int(deck['summoner_id'])))  
                 most_win_deck['card'] = []         
                 most_win_deck['card'].append('summoner')
                 most_win_deck['id'] = []
@@ -180,8 +171,7 @@ class Api(TemplateView):
                         most_win_deck['splinter'].append(splinter(monster_color(int(battle['monster_'+str(x+1)+'_id']))))
 
             df = pd.DataFrame(most_win_deck)
-            team = df.to_html(classes='table table-bordered')
-            data = {win_ratio,team}
+            data = df.to_html(classes='table table-bordered')
             return HttpResponse(data)
         else:
             data = "No Life Team Available"
@@ -249,19 +239,11 @@ class Api(TemplateView):
         deck = list(filter(most_win, possible_decks))
 
         if len(possible_decks) != 0:
-            Team = {}
-            Team['Team Available'] = len(possible_decks)
-            Team['This Team win'] = max
-            Team['Win Ratio'] = (max / len(possible_decks)) * 100
-
-            dg = pd.DataFrame(Team, index=[0])
-            win_ratio = dg.to_html(classes='table table-bordered')
     
             for battle in deck:
 
                 most_win_deck = {}
 
-                # most_win_deck['summoner_splinter'] = splinter(monster_color(int(deck['summoner_id'])))  
                 most_win_deck['card'] = []         
                 most_win_deck['card'].append('summoner')
                 most_win_deck['id'] = []
@@ -279,8 +261,7 @@ class Api(TemplateView):
                         most_win_deck['splinter'].append(splinter(monster_color(int(battle['monster_'+str(x+1)+'_id']))))
 
             df = pd.DataFrame(most_win_deck)
-            team = df.to_html(classes='table table-bordered')
-            data = {win_ratio,team}
+            data = df.to_html(classes='table table-bordered')
             return HttpResponse(data)
         else:
             data = "No Death Team Available"
@@ -348,19 +329,11 @@ class Api(TemplateView):
         deck = list(filter(most_win, possible_decks))
 
         if len(possible_decks) != 0:
-            Team = {}
-            Team['Team Available'] = len(possible_decks)
-            Team['This Team win'] = max
-            Team['Win Ratio'] = (max / len(possible_decks)) * 100
-
-            dg = pd.DataFrame(Team, index=[0])
-            win_ratio = dg.to_html(classes='table table-bordered')
     
             for battle in deck:
 
                 most_win_deck = {}
-
-                # most_win_deck['summoner_splinter'] = splinter(monster_color(int(deck['summoner_id'])))  
+ 
                 most_win_deck['card'] = []         
                 most_win_deck['card'].append('summoner')
                 most_win_deck['id'] = []
@@ -378,8 +351,7 @@ class Api(TemplateView):
                         most_win_deck['splinter'].append(splinter(monster_color(int(battle['monster_'+str(x+1)+'_id']))))
 
             df = pd.DataFrame(most_win_deck)
-            team = df.to_html(classes='table table-bordered')
-            data = {win_ratio,team}
+            data = df.to_html(classes='table table-bordered')
             return HttpResponse(data)
         else:
             data = "No Water Team Available"
@@ -447,19 +419,11 @@ class Api(TemplateView):
         deck = list(filter(most_win, possible_decks))
 
         if len(possible_decks) != 0:
-            Team = {}
-            Team['Team Available'] = len(possible_decks)
-            Team['This Team win'] = max
-            Team['Win Ratio'] = (max / len(possible_decks)) * 100
-
-            dg = pd.DataFrame(Team, index=[0])
-            win_ratio = dg.to_html(classes='table table-bordered')
     
             for battle in deck:
 
                 most_win_deck = {}
-
-                # most_win_deck['summoner_splinter'] = splinter(monster_color(int(deck['summoner_id'])))  
+ 
                 most_win_deck['card'] = []         
                 most_win_deck['card'].append('summoner')
                 most_win_deck['id'] = []
@@ -477,8 +441,7 @@ class Api(TemplateView):
                         most_win_deck['splinter'].append(splinter(monster_color(int(battle['monster_'+str(x+1)+'_id']))))
 
             df = pd.DataFrame(most_win_deck)
-            team = df.to_html(classes='table table-bordered')
-            data = {win_ratio,team}
+            data = df.to_html(classes='table table-bordered')
             return HttpResponse(data)
         else:
             data = "No Fire Team Available"
@@ -546,19 +509,11 @@ class Api(TemplateView):
         deck = list(filter(most_win, possible_decks))
 
         if len(possible_decks) != 0:
-            Team = {}
-            Team['Team Available'] = len(possible_decks)
-            Team['This Team win'] = max
-            Team['Win Ratio'] = (max / len(possible_decks)) * 100
-
-            dg = pd.DataFrame(Team, index=[0])
-            win_ratio = dg.to_html(classes='table table-bordered')
     
             for battle in deck:
 
                 most_win_deck = {}
-
-                # most_win_deck['summoner_splinter'] = splinter(monster_color(int(deck['summoner_id'])))  
+ 
                 most_win_deck['card'] = []         
                 most_win_deck['card'].append('summoner')
                 most_win_deck['id'] = []
@@ -576,8 +531,7 @@ class Api(TemplateView):
                         most_win_deck['splinter'].append(splinter(monster_color(int(battle['monster_'+str(x+1)+'_id']))))
 
             df = pd.DataFrame(most_win_deck)
-            team = df.to_html(classes='table table-bordered')
-            data = {win_ratio,team}
+            data = df.to_html(classes='table table-bordered')
             return HttpResponse(data)
         else:
             data = "No Earth Team Available"
@@ -633,31 +587,23 @@ class Api(TemplateView):
             if viable:          
                 possible_decks.append(battle)
 
+        max = 0
+        for battle in possible_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+        def most_win(battle):
+            if battle['amount'] == max:
+                return True
+            else:
+                return False
+        deck = list(filter(most_win, possible_decks))
+
         if len(possible_decks) != 0:
-            max = 0
-            for battle in possible_decks:
-                if battle['amount'] > max :
-                    max = battle['amount']
-            def most_win(battle):
-                if battle['amount'] == max:
-                    return True
-                else:
-                    return False
-            deck = list(filter(most_win, possible_decks))
-
-            Team = {}
-            Team['Team Available'] = len(possible_decks)
-            Team['This Team win'] = max
-            Team['Win Ratio'] = (max / len(possible_decks)) * 100
-
-            dg = pd.DataFrame(Team, index=[0])
-            win_ratio = dg.to_html(classes='table table-bordered')
-    
+  
             for battle in deck:
 
                 most_win_deck = {}
 
-                # most_win_deck['summoner_splinter'] = splinter(monster_color(int(deck['summoner_id'])))  
                 most_win_deck['card'] = []         
                 most_win_deck['card'].append('summoner')
                 most_win_deck['id'] = []
@@ -675,9 +621,482 @@ class Api(TemplateView):
                         most_win_deck['splinter'].append(splinter(monster_color(int(battle['monster_'+str(x+1)+'_id']))))
 
             df = pd.DataFrame(most_win_deck)
-            team = df.to_html(classes='table table-bordered')
-            data = {win_ratio,team}
+            data = df.to_html(classes='table table-bordered')
             return HttpResponse(data)
         else:
             data = "No Dragon Team Available"
             return HttpResponse(data)
+
+    def getteamwhitewin(request):
+
+        mana = request.GET.get("mana")
+        rule1 = request.GET.get("rule1")
+        rule2 = request.GET.get("rule2")
+
+        def filter_deck_all(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+        all_decks = list(filter(filter_deck_all, BATTLEBASE))
+
+        possible_decks = []
+
+        for battle in all_decks:
+            viable = False
+
+            player_summoner = [card for card in mycards if card['id'] == battle['summoner_id']]
+            # checks if player has card with battle summoner card_detail_id
+            if len(player_summoner) == 0:
+                viable = False
+            else:
+                for x in range(0, 6):
+                    if battle['monster_'+str(x+1)+'_id'] != "":
+                        player_monster = [card for card in mycards if card['id'] == battle['monster_'+str(x+1)+'_id']]
+                        # checks if player has card with battle monster card_detail_id
+                        if len(player_monster) > 0:
+                            viable = True
+                            # assigns player card to first instance returned from cards
+                            # player_monster = player_monster[0]
+                            # checks if levels match
+                            # if battle_monster['level'] == player_monster['level']:
+                            #     viable = True
+                            # else:
+                            #     viable = False
+                            #     break
+                        else:
+                            viable = False
+                            break
+            if viable:          
+                possible_decks.append(battle)
+
+        def filter_deck(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                    return True
+                else:
+                    return False
+        db_decks = list(filter(filter_deck, possible_decks))
+
+        max = 0
+        for battle in db_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+
+        if len(possible_decks) != 0:
+            Team = {}
+            Team['Possible Team'] = len(possible_decks)
+            Team['This Team win'] = max
+            Team['Win %'] = round((max / len(possible_decks) * 100),2)
+
+            dg = pd.DataFrame(Team, index=[0])
+            win_ratio = dg.to_html(classes='table table-bordered')
+            return HttpResponse(win_ratio)
+
+    def getteamblackwin(request):
+
+        mana = request.GET.get("mana")
+        rule1 = request.GET.get("rule1")
+        rule2 = request.GET.get("rule2")
+
+        def filter_deck_all(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+        all_decks = list(filter(filter_deck_all, BATTLEBASE))
+
+        possible_decks = []
+
+        for battle in all_decks:
+            viable = False
+
+            player_summoner = [card for card in mycards if card['id'] == battle['summoner_id']]
+            # checks if player has card with battle summoner card_detail_id
+            if len(player_summoner) == 0:
+                viable = False
+            else:
+                for x in range(0, 6):
+                    if battle['monster_'+str(x+1)+'_id'] != "":
+                        player_monster = [card for card in mycards if card['id'] == battle['monster_'+str(x+1)+'_id']]
+                        # checks if player has card with battle monster card_detail_id
+                        if len(player_monster) > 0:
+                            viable = True
+                            # assigns player card to first instance returned from cards
+                            # player_monster = player_monster[0]
+                            # checks if levels match
+                            # if battle_monster['level'] == player_monster['level']:
+                            #     viable = True
+                            # else:
+                            #     viable = False
+                            #     break
+                        else:
+                            viable = False
+                            break
+            if viable:          
+                possible_decks.append(battle)
+
+        def filter_deck(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Death':
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Death':
+                    return True
+                else:
+                    return False
+        db_decks = list(filter(filter_deck, possible_decks))
+
+        max = 0
+        for battle in db_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+
+        if len(possible_decks) != 0:
+            Team = {}
+            Team['Possible Team'] = len(possible_decks)
+            Team['This Team win'] = max
+            Team['Win %'] = round((max / len(possible_decks) * 100),2)
+
+            dg = pd.DataFrame(Team, index=[0])
+            win_ratio = dg.to_html(classes='table table-bordered')
+            return HttpResponse(win_ratio)
+
+    def getteambluewin(request):
+
+        mana = request.GET.get("mana")
+        rule1 = request.GET.get("rule1")
+        rule2 = request.GET.get("rule2")
+
+        def filter_deck_all(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+        all_decks = list(filter(filter_deck_all, BATTLEBASE))
+
+        possible_decks = []
+
+        for battle in all_decks:
+            viable = False
+
+            player_summoner = [card for card in mycards if card['id'] == battle['summoner_id']]
+            # checks if player has card with battle summoner card_detail_id
+            if len(player_summoner) == 0:
+                viable = False
+            else:
+                for x in range(0, 6):
+                    if battle['monster_'+str(x+1)+'_id'] != "":
+                        player_monster = [card for card in mycards if card['id'] == battle['monster_'+str(x+1)+'_id']]
+                        # checks if player has card with battle monster card_detail_id
+                        if len(player_monster) > 0:
+                            viable = True
+                            # assigns player card to first instance returned from cards
+                            # player_monster = player_monster[0]
+                            # checks if levels match
+                            # if battle_monster['level'] == player_monster['level']:
+                            #     viable = True
+                            # else:
+                            #     viable = False
+                            #     break
+                        else:
+                            viable = False
+                            break
+            if viable:          
+                possible_decks.append(battle)
+
+        def filter_deck(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Water':
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Water':
+                    return True
+                else:
+                    return False
+        db_decks = list(filter(filter_deck, possible_decks))
+
+        max = 0
+        for battle in db_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+
+        if len(possible_decks) != 0:
+            Team = {}
+            Team['Possible Team'] = len(possible_decks)
+            Team['This Team win'] = max
+            Team['Win %'] = round((max / len(possible_decks) * 100),2)
+
+            dg = pd.DataFrame(Team, index=[0])
+            win_ratio = dg.to_html(classes='table table-bordered')
+            return HttpResponse(win_ratio)
+
+    def getteamredwin(request):
+
+        mana = request.GET.get("mana")
+        rule1 = request.GET.get("rule1")
+        rule2 = request.GET.get("rule2")
+
+        def filter_deck_all(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+        all_decks = list(filter(filter_deck_all, BATTLEBASE))
+
+        possible_decks = []
+
+        for battle in all_decks:
+            viable = False
+
+            player_summoner = [card for card in mycards if card['id'] == battle['summoner_id']]
+            # checks if player has card with battle summoner card_detail_id
+            if len(player_summoner) == 0:
+                viable = False
+            else:
+                for x in range(0, 6):
+                    if battle['monster_'+str(x+1)+'_id'] != "":
+                        player_monster = [card for card in mycards if card['id'] == battle['monster_'+str(x+1)+'_id']]
+                        # checks if player has card with battle monster card_detail_id
+                        if len(player_monster) > 0:
+                            viable = True
+                            # assigns player card to first instance returned from cards
+                            # player_monster = player_monster[0]
+                            # checks if levels match
+                            # if battle_monster['level'] == player_monster['level']:
+                            #     viable = True
+                            # else:
+                            #     viable = False
+                            #     break
+                        else:
+                            viable = False
+                            break
+            if viable:          
+                possible_decks.append(battle)
+
+        def filter_deck(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Fire':
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Fire':
+                    return True
+                else:
+                    return False
+        db_decks = list(filter(filter_deck, possible_decks))
+
+        max = 0
+        for battle in db_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+
+        if len(possible_decks) != 0:
+            Team = {}
+            Team['Possible Team'] = len(possible_decks)
+            Team['This Team win'] = max
+            Team['Win %'] = round((max / len(possible_decks) * 100),2)
+
+            dg = pd.DataFrame(Team, index=[0])
+            win_ratio = dg.to_html(classes='table table-bordered')
+            return HttpResponse(win_ratio)
+
+    def getteamgreenwin(request):
+
+        mana = request.GET.get("mana")
+        rule1 = request.GET.get("rule1")
+        rule2 = request.GET.get("rule2")
+
+        def filter_deck_all(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+        all_decks = list(filter(filter_deck_all, BATTLEBASE))
+
+        possible_decks = []
+
+        for battle in all_decks:
+            viable = False
+
+            player_summoner = [card for card in mycards if card['id'] == battle['summoner_id']]
+            # checks if player has card with battle summoner card_detail_id
+            if len(player_summoner) == 0:
+                viable = False
+            else:
+                for x in range(0, 6):
+                    if battle['monster_'+str(x+1)+'_id'] != "":
+                        player_monster = [card for card in mycards if card['id'] == battle['monster_'+str(x+1)+'_id']]
+                        # checks if player has card with battle monster card_detail_id
+                        if len(player_monster) > 0:
+                            viable = True
+                            # assigns player card to first instance returned from cards
+                            # player_monster = player_monster[0]
+                            # checks if levels match
+                            # if battle_monster['level'] == player_monster['level']:
+                            #     viable = True
+                            # else:
+                            #     viable = False
+                            #     break
+                        else:
+                            viable = False
+                            break
+            if viable:          
+                possible_decks.append(battle)
+
+        def filter_deck(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Earth':
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Earth':
+                    return True
+                else:
+                    return False
+        db_decks = list(filter(filter_deck, possible_decks))
+
+        max = 0
+        for battle in db_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+
+        if len(possible_decks) != 0:
+            Team = {}
+            Team['Possible Team'] = len(possible_decks)
+            Team['This Team win'] = max
+            Team['Win %'] = round((max / len(possible_decks) * 100),2)
+
+            dg = pd.DataFrame(Team, index=[0])
+            win_ratio = dg.to_html(classes='table table-bordered')
+            return HttpResponse(win_ratio)
+
+    def getteamgoldwin(request):
+
+        mana = request.GET.get("mana")
+        rule1 = request.GET.get("rule1")
+        rule2 = request.GET.get("rule2")
+
+        def filter_deck_all(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana):
+                    return True
+                else:
+                    return False
+        all_decks = list(filter(filter_deck_all, BATTLEBASE))
+
+        possible_decks = []
+
+        for battle in all_decks:
+            viable = False
+
+            player_summoner = [card for card in mycards if card['id'] == battle['summoner_id']]
+            # checks if player has card with battle summoner card_detail_id
+            if len(player_summoner) == 0:
+                viable = False
+            else:
+                for x in range(0, 6):
+                    if battle['monster_'+str(x+1)+'_id'] != "":
+                        player_monster = [card for card in mycards if card['id'] == battle['monster_'+str(x+1)+'_id']]
+                        # checks if player has card with battle monster card_detail_id
+                        if len(player_monster) > 0:
+                            viable = True
+                            # assigns player card to first instance returned from cards
+                            # player_monster = player_monster[0]
+                            # checks if levels match
+                            # if battle_monster['level'] == player_monster['level']:
+                            #     viable = True
+                            # else:
+                            #     viable = False
+                            #     break
+                        else:
+                            viable = False
+                            break
+            if viable:          
+                possible_decks.append(battle)
+
+        def filter_deck(battle):
+            if rule2 == "None":
+                if battle['ruleset'] == rule1 and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Dragon':
+                    return True
+                else:
+                    return False
+            else:
+                rule = rule1+"|"+rule2
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Dragon':
+                    return True
+                else:
+                    return False
+        db_decks = list(filter(filter_deck, possible_decks))
+
+        max = 0
+        for battle in db_decks:
+            if battle['amount'] > max :
+                max = battle['amount']
+
+        if len(possible_decks) != 0:
+            Team = {}
+            Team['Possible Team'] = len(possible_decks)
+            Team['This Team win'] = max
+            Team['Win %'] = round((max / len(possible_decks) * 100),2)
+
+            dg = pd.DataFrame(Team, index=[0])
+            win_ratio = dg.to_html(classes='table table-bordered')
+            return HttpResponse(win_ratio)
