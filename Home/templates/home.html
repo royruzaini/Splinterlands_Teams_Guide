@@ -2,8 +2,19 @@
 {% block content %}
 
 <h1>
-    <!-- <label>Username:</label>
-    <input id="username" type="text"><br><br> -->
+    Enter your IGN to get your latest own cards.<br>
+</h1>
+<div class="card_generation">
+    <div>
+        <label>Username:</label>
+        <input id="username" type="text">
+        <button onclick="getcard()" >Get My Cards</button>
+        <label>Result:</label>
+        <div id="result"></div>
+    </div>
+</div>
+<br><br>
+<h1>
     Select team parameter.<br>
 </h1>
 <style>
@@ -267,6 +278,12 @@
         fetch('{% url 'get-team-gold' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
         .then(res => res.text())
 		.then(data => document.getElementById('teamgold').innerHTML = data)
+	}
+    function getcard(){
+        var username = document.getElementById('username').value;
+        fetch('{% url 'get-my-card' %}'+"?username="+username)
+        .then(res => res.text())
+		.then(data => document.getElementById('result').innerHTML = data)
 	}
 </script>
 {% endblock %}

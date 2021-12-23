@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name = 'home'),
+    path('getcard/',views.Api.get_cards, name='get-my-card'),
     path('life/',views.Api.getteamwhite, name='get-team-white'),
     path('death/',views.Api.getteamblack, name='get-team-black'),
     path('water/',views.Api.getteamblue, name='get-team-blue'),
