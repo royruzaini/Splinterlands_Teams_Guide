@@ -1,5 +1,5 @@
 ## Splinterlands_Teams_Guide
-A tool to guide you for team selection based on mana and ruleset using your ownded cards.
+A tool to guide you for team selection based on mana and ruleset using your owned cards.
 
 ## Built With
 
