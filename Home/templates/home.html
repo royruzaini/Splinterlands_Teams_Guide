@@ -11,13 +11,13 @@
         display: inline-block;
     }
     table {
-        border-spacing: 20em 15em;
+        border-spacing: 1em .5em;
         border: 1px solid orange;
     }
     th {
         width: auto;
         height: auto;
-        padding: 5px;
+        padding: 1px;
         text-align: center;
         border: 1px solid black;
         vertical-align: middle;
@@ -155,16 +155,61 @@
             </select>
     </div>
 </div>
+<br>
 <div>
     <button onclick="Submit()" >Submit</button>
 </div>
 <br><br>
-<div id="teamwhite"></div>
+<!-- <div id="teamwhite"></div>
 <div id="teamblack"></div>
 <div id="teamblue"></div>
 <div id="teamred"></div>
 <div id="teamgreen"></div>
-<div id="teamgold"></div>
+<div id="teamgold"></div> -->
+<table>
+    <tr style="background-color: darkcyan;">
+        <th>Life Team:</th>
+        <th></th>
+        <th>Death Team:</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="teamwhite"></div><br>
+        </td>
+        <td></td>
+        <td>
+            <div id="teamblack"></div>
+        </td>
+    </tr>
+    <tr style="background-color: darkcyan;">
+        <th>Water Team:</th>
+        <th></th>
+        <th>Fire Team:</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="teamblue"></div><br>
+        </td>
+        <td></td>
+        <td>
+            <div id="teamred"></div>
+        </td>
+    </tr>
+    <tr style="background-color: darkcyan;">
+        <th>Earth Team:</th>
+        <th></th>
+        <th>Dragon Team:</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="teamgreen"></div><br>
+        </td>
+        <td></td>
+        <td>
+            <div id="teamgold"></div>
+        </td>
+    </tr>
+</table>
 <script>
     // Make API calls
     function Submit() {

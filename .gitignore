@@ -7,4 +7,5 @@ old/
 node_modules/
 .env
 allcollection.json
+collection.json
 test.py
