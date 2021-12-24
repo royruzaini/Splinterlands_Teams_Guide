@@ -191,7 +191,7 @@ class Api(TemplateView):
                     return False
             else:
                 rule = rule1+"|"+rule2
-                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Death':
                     return True
                 else:
                     return False
@@ -281,7 +281,7 @@ class Api(TemplateView):
                     return False
             else:
                 rule = rule1+"|"+rule2
-                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Water':
                     return True
                 else:
                     return False
@@ -371,7 +371,7 @@ class Api(TemplateView):
                     return False
             else:
                 rule = rule1+"|"+rule2
-                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Fire':
                     return True
                 else:
                     return False
@@ -461,7 +461,7 @@ class Api(TemplateView):
                     return False
             else:
                 rule = rule1+"|"+rule2
-                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Earth':
                     return True
                 else:
                     return False
@@ -551,7 +551,7 @@ class Api(TemplateView):
                     return False
             else:
                 rule = rule1+"|"+rule2
-                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Life':
+                if battle['ruleset'] == rule and battle['mana_cap'] == int(mana) and battle['summoner_splinter'] == 'Dragon':
                     return True
                 else:
                     return False
