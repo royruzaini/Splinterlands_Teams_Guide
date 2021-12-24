@@ -1,26 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>
-    Enter your IGN to get your latest own cards.<br>
-</h1>
-<div class="card_generation">
-    <div>
-        <label>Username:</label>
-        <input id="username" type="text">
-        <button onclick="getcard()" >Get My Cards</button>
-        <label>Result:</label>
-        <div id="result"></div>
-    </div>
-</div>
-<br><br>
-<h1>
-    Select team parameter.<br>
-</h1>
 <style>
-    div {
-        display: inline-block;
-    }
     table {
         border-spacing: 1em .5em;
         border: 1px solid orange;
@@ -40,11 +21,45 @@
         border: 1px solid black;
         vertical-align: middle;
     }
+    .button {
+        background-color: darkcyan; /* Green */
+        border: none;
+        color: black;
+        padding: 12px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    .button5:hover {
+        background-color: cadetblue;
+        color: white;
+    }
 </style>
+
+<h1>
+    Enter your IGN to get your latest own cards.<br>
+</h1>
+<div class="card_generation">
+    <div>
+        <label style="display: inline-block;">Username:</label>
+        <input style="display: inline-block;" id="username" type="text">
+        <button class="button button5" style="display: inline-block;" onclick="getcard()" >Get My Cards</button>
+        <label style="display: inline-block;">Result:</label>
+        <div style="display: inline-block;" id="result"></div>
+    </div>
+</div>
+<br><br>
+<h1>
+    Select team parameter.<br>
+</h1>
 <div class="mana_selection">
     <div>
-        <label for="mana">Choose a mana:</label>
-            <select name="mana" id="mana">
+        <label style="display: inline-block;" for="mana">Choose a mana:</label>
+            <select style="display: inline-block;" name="mana" id="mana">
                 <option value="12">12</option>
                 <option value="13">13</option>
                 <option value="14">14</option>
@@ -90,8 +105,8 @@
 </div>
 <div class="ruleset_selection">
     <div>
-        <label for="ruleset1">1st ruleset:</label>
-            <select name="rule1" id="rule1">
+        <label style="display: inline-block;" for="ruleset1">1st ruleset:</label>
+            <select style="display: inline-block;" name="rule1" id="rule1">
                 <option value="Standard">Standard</option>
                 <option value="Aim True">Aim True</option>
                 <option value="Armored Up">Armored Up</option>
@@ -128,8 +143,8 @@
             </select>
     </div>
     <div>
-        <label for="ruleset2">2nd ruleset:</label>
-            <select name="rule2" id="rule2">
+        <label style="display: inline-block;" for="ruleset2">2nd ruleset:</label>
+            <select style="display: inline-block;" name="rule2" id="rule2">
                 <option value="None">None</option>
                 <option value="Aim True">Aim True</option>
                 <option value="Armored Up">Armored Up</option>
@@ -168,7 +183,7 @@
 </div>
 <br>
 <div>
-    <button onclick="Submit()" >Submit</button>
+    <button class="button button5" onclick="Submit()" >Submit</button>
 </div>
 <br><br>
 <table>

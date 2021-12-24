@@ -55,37 +55,42 @@ class Api(TemplateView):
         """ Get user's playable cards.
         """
         username = request.GET.get("username")
+
+        if username != "":
       
-        base_cards = [135, 136, 137, 138, 139, 140, 141, 145, 146, 147, 148, 149, 150, 151, 152, 156, 157, 158, 159, 160, 161, 162, 163, 167, 168, 169, 170, 171, 172, 173, 174, 178, 179, 180, 181, 182, 183, 184, 185, 189, 190, 191, 192, 193, 194, 195, 196, 224, 353, 354, 355, 356, 357, 358, 359, 360, 361, 367, 368, 369, 370, 371, 372, 373, 374, 375, 381, 382, 383, 384, 385, 386, 387, 388, 389, 395, 396, 397, 398, 399, 400, 401, 402, 403, 409, 410, 411, 412, 413, 414, 415, 416, 417, 423, 424, 425, 426, 427, 428, 429, 437, 438, 439, 440, 441] 
-        p_cards = []
+            base_cards = [135, 136, 137, 138, 139, 140, 141, 145, 146, 147, 148, 149, 150, 151, 152, 156, 157, 158, 159, 160, 161, 162, 163, 167, 168, 169, 170, 171, 172, 173, 174, 178, 179, 180, 181, 182, 183, 184, 185, 189, 190, 191, 192, 193, 194, 195, 196, 224, 353, 354, 355, 356, 357, 358, 359, 360, 361, 367, 368, 369, 370, 371, 372, 373, 374, 375, 381, 382, 383, 384, 385, 386, 387, 388, 389, 395, 396, 397, 398, 399, 400, 401, 402, 403, 409, 410, 411, 412, 413, 414, 415, 416, 417, 423, 424, 425, 426, 427, 428, 429, 437, 438, 439, 440, 441] 
+            p_cards = []
 
-        player_cards_data = requests.get(
-            'https://api2.splinterlands.com/cards/collection/' + username.lower()
-        )
-        player_cards = player_cards_data.json()['cards']
+            player_cards_data = requests.get(
+                'https://api2.splinterlands.com/cards/collection/' + username.lower()
+            )
+            player_cards = player_cards_data.json()['cards']
 
-        for p_card in player_cards:
-            # checks if base cards have been upgraded
-            if p_card['card_detail_id'] in base_cards:
-                base_cards.remove(p_card['card_detail_id'])
+            for p_card in player_cards:
+                # checks if base cards have been upgraded
+                if p_card['card_detail_id'] in base_cards:
+                    base_cards.remove(p_card['card_detail_id'])
 
-            p_card_data = {}
-            p_card_data['id'] = p_card['card_detail_id']
-            p_card_data['level'] = p_card['level']
-            p_cards.append(p_card_data)
+                p_card_data = {}
+                p_card_data['id'] = p_card['card_detail_id']
+                p_card_data['level'] = p_card['level']
+                p_cards.append(p_card_data)
 
-        for base_card in base_cards:
-            base_card_data = {}
-            base_card_data['id'] = base_card
-            base_card_data['level'] = 1
-            p_cards.append(base_card_data)
+            for base_card in base_cards:
+                base_card_data = {}
+                base_card_data['id'] = base_card
+                base_card_data['level'] = 1
+                p_cards.append(base_card_data)
 
-        with open("mycards.json", "w") as outfile:
-            outfile.write(json.dumps(p_cards))
-        outfile.close
+            with open("mycards.json", "w") as outfile:
+                outfile.write(json.dumps(p_cards))
+            outfile.close
 
-        data = "mycards.json successfully created!"
-        return HttpResponse(data)
+            data = "mycards.json successfully created!"
+            return HttpResponse(data)
+        else :
+            data = "please enter correct username without @ !"
+            return HttpResponse(data)
 
     def getteamwhite(request):
 
