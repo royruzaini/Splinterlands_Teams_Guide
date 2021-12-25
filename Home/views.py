@@ -109,59 +109,65 @@ class Api(TemplateView):
                 outfile.write(json.dumps(p_cards))
             outfile.close
 
-        edition_deck = []
+            edition_deck = []
 
-        for x in edition:
-            if x != '':
-                x = int(x)
+            for x in edition:
+                if x != '':
+                    x = int(x)
+                    with open("mycards.json") as file:
+                        mycards = json.load(file)
+                    file.close
+
+                    for p_card in mycards:
+                    # checks if base cards have been upgraded
+                        if p_card['edition'] == x:
+                            edition_deck.append(p_card)
+
+                    with open("mycards.json", "w") as outfile:
+                        outfile.write(json.dumps(edition_deck))
+                    outfile.close
+
+            NoLegend_deck = []
+
+            if NoLegend == "NoLegend":
                 with open("mycards.json") as file:
                     mycards = json.load(file)
                 file.close
 
                 for p_card in mycards:
                 # checks if base cards have been upgraded
-                    if p_card['edition'] == x:
-                        edition_deck.append(p_card)
+                    if p_card['rarity'] != 4:
+                        NoLegend_deck.append(p_card)
 
                 with open("mycards.json", "w") as outfile:
-                    outfile.write(json.dumps(edition_deck))
+                    outfile.write(json.dumps(NoLegend_deck))
                 outfile.close
 
-        NoLegend_deck = []
+            NoLegendSummoners_deck = []
 
-        if NoLegend == "NoLegend":
-            with open("mycards.json") as file:
-                mycards = json.load(file)
-            file.close
+            if NoLegendSummoners == "NoLegendSummoners":
+                with open("mycards.json") as file:
+                    mycards = json.load(file)
+                file.close
 
-            for p_card in mycards:
-            # checks if base cards have been upgraded
-                if p_card['rarity'] != 4:
-                    NoLegend_deck.append(p_card)
+                with open("legendarySummonersCards.json") as file:
+                    NoLegendSummoners = json.load(file)
+                file.close
 
-            with open("mycards.json", "w") as outfile:
-                outfile.write(json.dumps(NoLegend_deck))
-            outfile.close
+                for p_card in mycards:
+                # checks if base cards have been upgraded
+                    if p_card['id'] not in base_cards:
+                        NoLegendSummoners_deck.append(p_card)
 
-        NoLegendSummoners_deck = []
+                with open("mycards.json", "w") as outfile:
+                    outfile.write(json.dumps(NoLegendSummoners_deck))
+                outfile.close
 
-        if NoLegendSummoners == "NoLegendSummoners":
-            with open("mycards.json") as file:
-                mycards = json.load(file)
-            file.close
-
-            with open("legendarySummonersCards.json") as file:
-                NoLegendSummoners = json.load(file)
-            file.close
-
-            for p_card in mycards:
-            # checks if base cards have been upgraded
-                if p_card['id'] not in base_cards:
-                    NoLegendSummoners_deck.append(p_card)
-
-            with open("mycards.json", "w") as outfile:
-                outfile.write(json.dumps(NoLegendSummoners_deck))
-            outfile.close
+            data = "mycards.json successfully created!"
+            return HttpResponse(data)
+        else :
+            data = "please enter correct username!"
+            return HttpResponse(data)
 
     def getteamwhite(request):
 
