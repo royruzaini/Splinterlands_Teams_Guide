@@ -53,6 +53,34 @@
     </div>
 </div>
 <br><br>
+
+<h1>
+    Select below option to filter your playable cards.<br>
+</h1>
+<div class="card_filter">
+    <div>
+        <input style="display: inline-block;" type="checkbox" id="Promo" name="Promo" value="2">
+        <label style="display: inline-block;" for="Promo"> Promo</label><br>
+        <input style="display: inline-block;" type="checkbox" id="Reward" name="Reward" value="3">
+        <label style="display: inline-block;" for="Reward"> Reward</label><br>
+        <input style="display: inline-block;" type="checkbox" id="Untamed" name="Untamed" value="4">
+        <label style="display: inline-block;" for="Untamed"> Untamed</label><br>
+    </div>
+    <div>
+        <input style="display: inline-block;" type="checkbox" id="Dice" name="Dice" value="5">
+        <label style="display: inline-block;" for="Dice"> Dice</label><br>
+        <input style="display: inline-block;" type="checkbox" id="ChaosLegion" name="ChaosLegion" value="7">
+        <label style="display: inline-block;" for="ChaosLegion"> Chaos Legion</label><br>
+    </div>
+    <div>
+        <input style="display: inline-block;" type="checkbox" id="NoLegend" name="NoLegend" value="NoLegend">
+        <label style="display: inline-block;" for="NoLegend"> No Legendary Cards may be used.</label><br>
+        <input style="display: inline-block;" type="checkbox" id="NoLegendSummoners" name="NoLegendSummoners" value="NoLegendSummoners">
+        <label style="display: inline-block;" for="NoLegendSummoners"> No Legendary Summoners may be used.</label><br>
+    </div>
+</div>
+<br><br>
+
 <h1>
     Select team parameter.<br>
 </h1>
@@ -186,6 +214,10 @@
     <button class="button button5" onclick="Submit()" >Submit</button>
 </div>
 <br><br>
+<h1>
+    <label style="display: inline-block;">Possible Team based on your cards:</label>
+    <div style="display: inline-block;" id="possibleteam"></div>
+</h1>
 <table>
     <tr style="background-color: darkcyan;">
         <th>Life Team:</th>
@@ -277,6 +309,7 @@
 <script>
     // Make API calls
     function Submit() {
+        possibleteam();
         life();
         death();
         water();
@@ -337,13 +370,7 @@
         fetch('{% url 'get-team-gold' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
         .then(res => res.text())
 		.then(data => document.getElementById('teamgold').innerHTML = data)
-	}
-    function getcard(){
-        var username = document.getElementById('username').value;
-        fetch('{% url 'get-my-card' %}'+"?username="+username)
-        .then(res => res.text())
-		.then(data => document.getElementById('result').innerHTML = data)
-	}
+	}   
     function lifewin(){
         var mana = document.getElementById('mana').value;
         var rule1 = document.getElementById('rule1').value;
@@ -391,6 +418,49 @@
         fetch('{% url 'get-team-gold-win' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
         .then(res => res.text())
 		.then(win_ratio => document.getElementById('teamgoldwin').innerHTML = win_ratio)
+	}
+    function possibleteam(){
+        var mana = document.getElementById('mana').value;
+        var rule1 = document.getElementById('rule1').value;
+        var rule2 = document.getElementById('rule2').value;
+        fetch('{% url 'get-possible-team' %}'+"?mana="+mana+"&rule1="+rule1+"&rule2="+rule2)
+        .then(res => res.text())
+		.then(team => document.getElementById('possibleteam').innerHTML = team)
+	}
+    function getcard(){
+        var username = document.getElementById('username').value;
+        var promo = document.getElementById('Promo');
+        var reward = document.getElementById('Reward');
+        var untamed = document.getElementById('Untamed');
+        var dice = document.getElementById('Dice');
+        var chaos = document.getElementById('ChaosLegion');
+        var NoLegend = document.getElementById('NoLegend');
+        var NoLegendSummoners = document.getElementById('NoLegendSummoners');
+        if (promo.checked == true){  
+            var promoCheck = document.getElementById('Promo').value;
+        }
+        if (reward.checked == true){  
+            var rewardCheck = document.getElementById('Reward').value;
+        }  
+        if (untamed.checked == true){  
+            var untamedCheck = document.getElementById('Untamed').value;
+        }  
+        if (dice.checked == true){  
+            var diceCheck = document.getElementById('Dice').value;
+        }  
+        if (chaos.checked == true){  
+            var chaosCheck = document.getElementById('ChaosLegion').value;
+        }  
+        if (NoLegend.checked == true){  
+            var NoLegendCheck = document.getElementById('NoLegend').value;
+        }  
+        if (NoLegendSummoners.checked == true){  
+            var NoLegendSummonersCheck = document.getElementById('NoLegendSummoners').value;
+        }
+        const edition = [promoCheck,rewardCheck,untamedCheck,diceCheck,chaosCheck]
+        fetch('{% url 'get-my-card' %}'+"?username="+username+"&edition="+edition+"&NoLegend="+NoLegendCheck+"&NoLegendSummoners="+NoLegendSummonersCheck)
+        .then(res => res.text())
+		.then(data => document.getElementById('result').innerHTML = data)
 	}
 </script>
 {% endblock %}

@@ -15,5 +15,6 @@ urlpatterns = [
     path('waterwin/',views.Api.getteambluewin, name='get-team-blue-win'),
     path('firewin/',views.Api.getteamredwin, name='get-team-red-win'),
     path('earthwin/',views.Api.getteamgreenwin, name='get-team-green-win'),
-    path('dragonwin/',views.Api.getteamgoldwin, name='get-team-gold-win'),  
+    path('dragonwin/',views.Api.getteamgoldwin, name='get-team-gold-win'),
+    path('possibleteam/',views.Api.getpossibleteam, name='get-possible-team')
 ]

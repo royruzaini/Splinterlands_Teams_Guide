@@ -20,3 +20,13 @@ with open("basicCards.json", "w") as f:
     f.write(json.dumps(cards))
     print("basicCards.json file was updated!")
 f.close
+
+with open('cardsDetails.json') as f:
+    card_id = json.load(f)
+    cards_legends_summoners = [x['id'] for x in card_id if x['type'] == 'Summoner' and x['rarity'] == 4]
+f.close
+
+with open("legendarySummonersCards.json", "w") as f:
+    f.write(json.dumps(cards_legends_summoners))
+    print("legendarySummonersCards.json file was updated!")
+f.close
