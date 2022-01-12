@@ -32,6 +32,9 @@ The tool can be run on the following OS:
       ```
       
 5. Download the collection.json from discord below. Copy the file into Splinterlands_Teams_Guide directory
+      ```sh
+      "C:\Users\<users>\Desktop\Splinterlands_Teams_Guide\collection.json"
+      ```
 
 # How to use
 
