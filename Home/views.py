@@ -59,7 +59,7 @@ with open("mycards.json") as file:
     mycards = json.load(file)
 file.close
 
-with open('collection.json') as f:
+with open('C:/Users/royru/Desktop/SplinterlandsBot-History/collection.json') as f:
     BATTLEBASE = json.load(f)
 f.close
 
@@ -111,21 +111,23 @@ class Api(TemplateView):
 
             edition_deck = []
 
+            with open("mycards.json") as file:
+                mycards = json.load(file)
+            file.close
+
             for x in edition:
                 if x != '':
                     x = int(x)
-                    with open("mycards.json") as file:
-                        mycards = json.load(file)
-                    file.close
 
                     for p_card in mycards:
                     # checks if base cards have been upgraded
                         if p_card['edition'] == x:
                             edition_deck.append(p_card)
-
-                    with open("mycards.json", "w") as outfile:
-                        outfile.write(json.dumps(edition_deck))
-                    outfile.close
+                            
+            if len(edition_deck) > 0:
+                with open("mycards.json", "w") as outfile:
+                    outfile.write(json.dumps(edition_deck))
+                outfile.close
 
             NoLegend_deck = []
 
@@ -156,12 +158,16 @@ class Api(TemplateView):
 
                 for p_card in mycards:
                 # checks if base cards have been upgraded
-                    if p_card['id'] not in base_cards:
+                    if p_card['id'] not in NoLegendSummoners:
                         NoLegendSummoners_deck.append(p_card)
 
                 with open("mycards.json", "w") as outfile:
                     outfile.write(json.dumps(NoLegendSummoners_deck))
                 outfile.close
+
+            with open("mycards.json") as file:
+                mycards = json.load(file)
+            file.close
 
             data = "mycards.json successfully created!"
             return HttpResponse(data)

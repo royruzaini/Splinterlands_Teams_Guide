@@ -6,8 +6,6 @@ dist/
 old/
 node_modules/
 .env
-allcollection.json
-collection.json
-collection2.json
 test.py
 test2.py
+*.json
