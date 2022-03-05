@@ -35,6 +35,7 @@ The tool can be run on the following OS:
       ```sh
       "C:\Users\<users>\Desktop\Splinterlands_Teams_Guide\collection.json"
       ```
+6. Convert `.env-example` to `.env`
 
 # How to use
 
